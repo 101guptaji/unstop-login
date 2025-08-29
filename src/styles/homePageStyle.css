@@ -1,0 +1,109 @@
+.home-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 100px;
+
+    width: 100dvw;
+    height: 100dvh;
+    position: relative;
+    background-color: #FFFFFF;
+}
+
+.home-header {
+    font-family: 'Poppins', sans-serif;
+    font-size: 36px;
+    font-weight: 500;
+    color: #2F2F2F;
+    line-height: 136%;
+
+    & h1 {
+        font-size: 46px;
+        font-weight: 900;
+        color: #6358DC;
+        line-height: 136%;
+        text-align: center;
+    }
+}
+
+.profile-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    gap: 20px;
+
+    width: 267px;
+    /* height: 311px; */ 
+
+    border: 1px solid #E2E2E2;
+    box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.65);
+    border-radius: 20px;
+}
+
+.profile-img {
+    width: 120px;
+    height: 120px;
+    overflow: hidden;
+    border: 1px solid #E2E2E2;
+    border-radius: 100px;
+    object-fit: cover;
+}
+
+.profile-details {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0px;
+    gap: 4px;
+
+    & h3 {
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 16px;
+        line-height: 19px;
+        text-align: center;
+        color: #6358DC;
+        margin-bottom: 6px;
+    }
+
+    & p {
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 12px;
+        line-height: 15px;
+        text-align: center;
+        color: #383838;
+    }
+}
+
+.logout-button {
+    background: #6358DC;
+    border-radius: 16px;
+    border: 1px solid #FFFFFF;
+    width: 137px;
+    height: 48px;
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    cursor: pointer;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 15px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: #FFFFFF;
+
+    transition: background-color 0.3s ease;
+}
+
+.logout-button:hover {
+    background-color: #4e45c4;
+}
