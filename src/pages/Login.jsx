@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import toast from 'react-hot-toast';
 import '../styles/loginStyle.css'
 
-const API_URL = import.meta.env.VITE_API_BASE || 'https://dummyjson.com';
+const API_URL = import.meta.env.VITE_API_BASE;
 
 const validEmail = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
 
@@ -44,7 +44,6 @@ const Login = () => {
 
   const [loading, setLoading] = useState(false);
   const [errors, setErrors] = useState({});
-  // const [apiError, setApiError] = useState('');
 
   const handleSubmit = async e => {
     e.preventDefault();
@@ -61,7 +60,7 @@ const Login = () => {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          ...formData, ...(!rememberMe && { expiresInMins: 60 })
+          ...formData, ...(!rememberMe && { expiresInMins: 30 })
         })
       });
 
@@ -102,13 +101,14 @@ const Login = () => {
       <div className="login-illustration">
         <img src='/Illustration.png' alt="Login Illustration" />
       </div>
-
+    
       <div className="login-form-container">
+        {/* Welcome Title */}
         <div className="welcome-title">
           <p>Welcome to</p>
           <h1>Unstop</h1>
         </div>
-
+        {/* Social Login Buttons */}
         <div className="social-buttons">
           <button className="social-btn">
             <img src="/google.png" alt="Google" width={32} height={32} />
@@ -119,21 +119,22 @@ const Login = () => {
             Login with Facebook
           </button>
         </div>
-
+        {/* Or Separator */}
         <div className="or-separator">
           <hr className="line" />
           <span className="or-text">OR</span>
           <hr className="line" />
         </div>
-
+        {/* Login Form */}
         <form className="login-form" onSubmit={handleSubmit}>
           <div className="form-field">
             <span className="field-icon">
               <img src="/user-icon.png" alt="User Icon" width={24} height={24} />
             </span>
             <div className="field-group">
-              <label>User name</label>
+              <label htmlFor='username'>User name</label>
               <input required
+                id='username'
                 type="text"
                 placeholder="Enter 'emilys'"
                 name='username'
@@ -151,9 +152,10 @@ const Login = () => {
               <img src="/mail.png" alt="Mail Icon" width={24} height={24} />
             </span>
             <div className="field-group">
-              <label>Email</label>
+              <label htmlFor='email'>Email</label>
               <input required
                 type="email"
+                id='email'
                 name='email'
                 placeholder="example@gmail.com"
                 value={formData.email}
@@ -169,8 +171,9 @@ const Login = () => {
               <img src="/key.png" alt="Key Icon" width={24} height={24} />
             </span>
             <div className="field-group">
-              <label>Password</label>
+              <label htmlFor='password'>Password</label>
               <input required
+                id='password'
                 type={showPassword ? "text" : "password"}
                 name='password'
                 placeholder="Password (min 8 characters)"
@@ -186,7 +189,7 @@ const Login = () => {
               {errors.password && <span className="error-msg">{errors.password}</span>}
             </div>
           </div>
-          {/* Remember Me & Forgot */}
+          {/* Remember Me & Forgot Password */}
           <div className="form-options">
             <label className="remember-me">
               <input
