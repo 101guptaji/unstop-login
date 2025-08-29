@@ -3,6 +3,8 @@ import { useNavigate } from 'react-router-dom';
 import toast from 'react-hot-toast';
 import '../styles/loginStyle.css'
 
+const API_URL = import.meta.env.VITE_API_BASE || 'https://dummyjson.com';
+
 const validEmail = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
 
 const validateForm = (formData) => {
@@ -48,14 +50,14 @@ const Login = () => {
     e.preventDefault();
 
     const vErrors = validateForm(formData);
+    setErrors(vErrors);
     if (Object.keys(vErrors).length > 0) {
-      setErrors(vErrors);
       return;
     }
 
     try {
       setLoading(true);
-      const res = await fetch('https://dummyjson.com/auth/login', {
+      const res = await fetch(`${API_URL}/auth/login`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
