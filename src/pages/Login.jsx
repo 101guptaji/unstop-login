@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import toast from 'react-hot-toast';
 import '../styles/loginStyle.css'
 
-const API_URL = import.meta.env.VITE_API_BASE || 'https://dummyjson.com';
+const API_URL = import.meta.env.VITE_API_BASE;
 
 const validEmail = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
 
