@@ -1,12 +1,14 @@
+import {useNavigate} from 'react-router-dom'
 import '../styles/homePageStyle.css'
 
 const Home = () => {
   const userData = JSON.parse(localStorage.getItem('userData')) || {};
+  const navigate = useNavigate();
 
   const handleLogout = () => {
     localStorage.removeItem('token');
     localStorage.removeItem('userData');
-    window.location.href = '/auth/login';
+    navigate('/auth/login');
   };
 
   return (
